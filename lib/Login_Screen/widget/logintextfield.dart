@@ -3,10 +3,16 @@ import 'package:flutter/material.dart';
 class TextfieldLogin extends StatelessWidget {
   final String hinttext;
   final IconData icon;
-  const TextfieldLogin({super.key, required this.hinttext, required this.icon});
+  final TextInputType textType;
+  const TextfieldLogin(
+      {super.key,
+      required this.hinttext,
+      required this.icon,
+      required this.textType});
   @override
   Widget build(BuildContext context) {
     return TextField(
+      keyboardType: textType,
       style: const TextStyle(
           color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),
       decoration: InputDecoration(

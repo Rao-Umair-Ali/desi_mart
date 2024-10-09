@@ -58,6 +58,7 @@ class _LoginState extends State<Login> {
                 TextfieldLogin(
                   hinttext: "email",
                   icon: Icons.mail,
+                  textType: TextInputType.emailAddress,
                 ),
                 SizedBox(
                   height: 40,
@@ -72,6 +73,7 @@ class _LoginState extends State<Login> {
                 TextfieldLogin(
                   hinttext: "Password",
                   icon: Icons.remove_red_eye_outlined,
+                  textType: TextInputType.visiblePassword,
                 ),
                 SizedBox(
                   height: 20,
