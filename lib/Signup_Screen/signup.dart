@@ -1,16 +1,16 @@
-import 'package:desi_mart/Login_Screen/widget/loginbutton.dart';
-import 'package:desi_mart/Login_Screen/widget/logininkwell.dart';
-import 'package:desi_mart/Login_Screen/widget/logintextfield.dart';
+import 'package:desi_mart/Signup_Screen/widget/signupbutton.dart';
+import 'package:desi_mart/Signup_Screen/widget/signupinkwell.dart';
+import 'package:desi_mart/Signup_Screen/widget/signuptextfield.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatefulWidget {
-  Login({super.key});
+class Signup extends StatefulWidget {
+  Signup({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _LoginState extends State<Login> {
+class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -32,14 +32,14 @@ class _LoginState extends State<Login> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Log In",
+                  "Sign Up",
                   style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Text(
-                  "Enter your email and password",
+                  "Enter your Credentials to continue",
                   style: TextStyle(
                       color: Color(0Xff7C7C7C),
                       fontWeight: FontWeight.w600,
@@ -47,6 +47,21 @@ class _LoginState extends State<Login> {
                 ),
                 SizedBox(
                   height: 40,
+                ),
+                Text(
+                  "UserName",
+                  style: TextStyle(
+                      color: Color(0Xff7C7C7C),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16),
+                ),
+                TextfieldSignup(
+                  hinttext: "UserName",
+                  icon: Icons.person,
+                  textType: TextInputType.name,
+                ),
+                SizedBox(
+                  height: 30,
                 ),
                 Text(
                   "Email",
@@ -55,13 +70,13 @@ class _LoginState extends State<Login> {
                       fontWeight: FontWeight.w600,
                       fontSize: 16),
                 ),
-                TextfieldLogin(
+                TextfieldSignup(
                   hinttext: "email",
                   icon: Icons.mail,
                   textType: TextInputType.emailAddress,
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 30,
                 ),
                 Text(
                   "Password",
@@ -70,7 +85,7 @@ class _LoginState extends State<Login> {
                       color: Color(0Xff7C7C7C),
                       fontWeight: FontWeight.w600),
                 ),
-                TextfieldLogin(
+                TextfieldSignup(
                   hinttext: "Password",
                   icon: Icons.remove_red_eye_outlined,
                   textType: TextInputType.visiblePassword,
@@ -78,29 +93,24 @@ class _LoginState extends State<Login> {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkwellLogin(
-                      colorName: Colors.black,
-                      textName: "Forgot Password?",
-                    ),
-                  ],
+                Text(
+                  "By continuing you agree to our Tems of Service  and Privacy Policy",
+                  style: TextStyle(color: Color(0Xff7C7C7C), fontSize: 15),
                 ),
                 SizedBox(
                   height: 30,
                 ),
-                ButtonLogin(text: "Log In"),
+                ButtonSignup(text: "Sign Up"),
                 SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Don't have an account ? "),
-                    InkwellLogin(
+                    Text("Already have an account "),
+                    InkwellSignup(
                       colorName: Color(0xff53B175),
-                      textName: "Signup",
+                      textName: "Log In",
                     )
                   ],
                 ),
