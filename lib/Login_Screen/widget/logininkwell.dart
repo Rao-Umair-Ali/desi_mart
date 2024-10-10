@@ -1,3 +1,4 @@
+import 'package:desi_mart/Signup_Screen/signup.dart';
 import 'package:flutter/material.dart';
 
 class InkwellLogin extends StatelessWidget {
@@ -16,7 +17,8 @@ class InkwellLogin extends StatelessWidget {
         ),
       ),
       onTap: () {
-        print("object");
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Signup()));
       },
     );
   }

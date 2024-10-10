@@ -3,14 +3,9 @@ import 'package:desi_mart/Signup_Screen/widget/signupinkwell.dart';
 import 'package:desi_mart/Signup_Screen/widget/signuptextfield.dart';
 import 'package:flutter/material.dart';
 
-class Signup extends StatefulWidget {
+class Signup extends StatelessWidget {
   Signup({super.key});
 
-  @override
-  State<Signup> createState() => _SignupState();
-}
-
-class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
