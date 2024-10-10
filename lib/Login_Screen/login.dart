@@ -1,54 +1,75 @@
 import 'package:desi_mart/Login_Screen/widget/loginbutton.dart';
 import 'package:desi_mart/Login_Screen/widget/logininkwell.dart';
 import 'package:desi_mart/Login_Screen/widget/logintextfield.dart';
+import 'package:desi_mart/shop_screen/shop.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
-  Login({super.key});
+  const Login({super.key});
 
   @override
   State<Login> createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController emailAddress = TextEditingController();
+  TextEditingController password = TextEditingController();
+  logInButtonFunction() async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailAddress.text, password: password.text);
+      Navigator.push(
+          // ignore: use_build_context_synchronously
+          context,
+          MaterialPageRoute(builder: (context) => Shop()));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Image(image: AssetImage("assets/images/loginImage.jpg")),
-            SizedBox(
+            const Image(image: AssetImage("assets/images/loginImage.jpg")),
+            const SizedBox(
               height: 100,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Log In",
                   style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   "Enter your email and password",
                   style: TextStyle(
                       color: Color(0Xff7C7C7C),
                       fontWeight: FontWeight.w600,
                       fontSize: 16),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                Text(
+                const Text(
                   "Email",
                   style: TextStyle(
                       color: Color(0Xff7C7C7C),
@@ -59,11 +80,12 @@ class _LoginState extends State<Login> {
                   hinttext: "email",
                   icon: Icons.mail,
                   textType: TextInputType.emailAddress,
+                  controller: emailAddress,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                Text(
+                const Text(
                   "Password",
                   style: TextStyle(
                       fontSize: 16,
@@ -74,11 +96,12 @@ class _LoginState extends State<Login> {
                   hinttext: "Password",
                   icon: Icons.remove_red_eye_outlined,
                   textType: TextInputType.visiblePassword,
+                  controller: password,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     InkwellLogin(
@@ -87,14 +110,17 @@ class _LoginState extends State<Login> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                ButtonLogin(text: "Log In"),
-                SizedBox(
+                ButtonLogin(
+                  text: "Log In",
+                  callback: logInButtonFunction,
+                ),
+                const SizedBox(
                   height: 20,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Don't have an account ? "),

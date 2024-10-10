@@ -4,14 +4,17 @@ class TextfieldLogin extends StatelessWidget {
   final String hinttext;
   final IconData icon;
   final TextInputType textType;
+  final TextEditingController controller;
   const TextfieldLogin(
       {super.key,
       required this.hinttext,
       required this.icon,
-      required this.textType});
+      required this.textType,
+      required this.controller});
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       keyboardType: textType,
       style: const TextStyle(
           color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class ButtonLogin extends StatelessWidget {
   final String text;
-  const ButtonLogin({super.key, required this.text});
+  final VoidCallback callback;
+  const ButtonLogin({super.key, required this.text, required this.callback});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -14,7 +16,7 @@ class ButtonLogin extends StatelessWidget {
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(19))),
-        onPressed: () {},
+        onPressed: callback,
         child: Text(
           text,
           style: const TextStyle(fontSize: 18),
