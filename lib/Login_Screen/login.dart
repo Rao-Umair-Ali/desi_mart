@@ -25,12 +25,28 @@ class _LoginState extends State<Login> {
           MaterialPageRoute(builder: (context) => Shop()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text("Please create account from this email")),
+        );
         print('No user found for that email.');
       } else if (e.code == 'wrong-password') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Incorrect password")),
+        );
         print('Wrong password provided for that user.');
       }
     }
   }
+
+  // obsecurefun(bool obsecureText) {
+  //   obsecureText = true;
+  //   @override
+  //   void setState(VoidCallback fn) {
+  //     // TODO: implement setState
+  //     super.setState(fn);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +97,7 @@ class _LoginState extends State<Login> {
                   icon: Icons.mail,
                   textType: TextInputType.emailAddress,
                   controller: emailAddress,
+                  obsecureText: false,
                 ),
                 const SizedBox(
                   height: 40,
@@ -97,6 +114,7 @@ class _LoginState extends State<Login> {
                   icon: Icons.remove_red_eye_outlined,
                   textType: TextInputType.visiblePassword,
                   controller: password,
+                  obsecureText: true,
                 ),
                 const SizedBox(
                   height: 20,

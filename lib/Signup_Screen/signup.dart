@@ -8,42 +8,42 @@ class Signup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Image(image: AssetImage("assets/images/loginImage.jpg")),
-            SizedBox(
+            const Image(image: AssetImage("assets/images/loginImage.jpg")),
+            const SizedBox(
               height: 100,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Sign Up",
                   style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   "Enter your Credentials to continue",
                   style: TextStyle(
                       color: Color(0Xff7C7C7C),
                       fontWeight: FontWeight.w600,
                       fontSize: 16),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                Text(
+                const Text(
                   "UserName",
                   style: TextStyle(
                       color: Color(0Xff7C7C7C),
@@ -54,11 +54,12 @@ class Signup extends StatelessWidget {
                   hinttext: "UserName",
                   icon: Icons.person,
                   textType: TextInputType.name,
+                  obsecuretext: false,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                Text(
+                const Text(
                   "Email",
                   style: TextStyle(
                       color: Color(0Xff7C7C7C),
@@ -69,11 +70,12 @@ class Signup extends StatelessWidget {
                   hinttext: "email",
                   icon: Icons.mail,
                   textType: TextInputType.emailAddress,
+                  obsecuretext: false,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                Text(
+                const Text(
                   "Password",
                   style: TextStyle(
                       fontSize: 16,
@@ -84,22 +86,23 @@ class Signup extends StatelessWidget {
                   hinttext: "Password",
                   icon: Icons.remove_red_eye_outlined,
                   textType: TextInputType.visiblePassword,
+                  obsecuretext: true,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Text(
+                const Text(
                   "By continuing you agree to our Tems of Service  and Privacy Policy",
                   style: TextStyle(color: Color(0Xff7C7C7C), fontSize: 15),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                ButtonSignup(text: "Sign Up"),
-                SizedBox(
+                const ButtonSignup(text: "Sign Up"),
+                const SizedBox(
                   height: 20,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Already have an account "),
