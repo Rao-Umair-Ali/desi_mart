@@ -4,9 +4,12 @@ class Searchfieldshop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const TextField(
+      cursorColor: Colors.deepOrangeAccent,
       style: TextStyle(
-          color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),
+          color: Color(0xff7C7C7C), fontSize: 14, fontWeight: FontWeight.w600),
       decoration: InputDecoration(
+        filled: true,
+        fillColor: Color(0xffF2F3F2),
         hintText: "Search Store",
         suffixIcon: Icon(Icons.search),
         hintStyle: TextStyle(color: Colors.black),

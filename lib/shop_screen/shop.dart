@@ -37,14 +37,29 @@ class Shop extends StatelessWidget {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
               const SizedBox(
                 height: 10,
               ),
               Searchfieldshop(),
-              CarouselShop(imageLists: imageList)
+              CarouselShop(imageLists: imageList),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Exclusive Offer",
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.w600)),
+                  Text(
+                    "See all",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xff53B175)),
+                  )
+                ],
+              )
             ],
           ),
         ));
