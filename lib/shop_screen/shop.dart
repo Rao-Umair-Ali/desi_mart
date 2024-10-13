@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:desi_mart/Signup_Screen/widget/signupbutton.dart';
 import 'package:desi_mart/Signup_Screen/widget/signupinkwell.dart';
 import 'package:desi_mart/Signup_Screen/widget/signuptextfield.dart';
+import 'package:desi_mart/shop_screen/widget/carouselShop.dart';
 import 'package:flutter/material.dart';
 
 class Shop extends StatelessWidget {
@@ -15,6 +16,21 @@ class Shop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body:)
+        appBar: AppBar(
+          title: Row(
+            children: [
+              Image.asset("Image.asset(assets/images/loginImage.jpg"),
+              const Row(
+                children: [
+                  Icon(Icons.location_on_outlined),
+                  Text("Karachi , pakistan")
+                ],
+              )
+            ],
+          ),
+        ),
+        body: Column(
+          children: [CarouselShop(imageLists: imageList)],
+        ));
   }
 }
