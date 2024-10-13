@@ -1,8 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:desi_mart/Signup_Screen/widget/signupbutton.dart';
-import 'package:desi_mart/Signup_Screen/widget/signupinkwell.dart';
-import 'package:desi_mart/Signup_Screen/widget/signuptextfield.dart';
 import 'package:desi_mart/shop_screen/widget/carouselShop.dart';
+import 'package:desi_mart/shop_screen/widget/searchfieldShop.dart';
 import 'package:flutter/material.dart';
 
 class Shop extends StatelessWidget {
@@ -18,8 +15,18 @@ class Shop extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset("Image.asset(assets/images/loginImage.jpg"),
+              Container(
+                height: 40,
+                width: 40,
+                child: const Image(
+                  image: AssetImage("assets/images/loginImage.jpg"),
+                ),
+              ),
+              const SizedBox(
+                width: 40,
+              ),
               const Row(
                 children: [
                   Icon(Icons.location_on_outlined),
@@ -29,8 +36,17 @@ class Shop extends StatelessWidget {
             ],
           ),
         ),
-        body: Column(
-          children: [CarouselShop(imageLists: imageList)],
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              Searchfieldshop(),
+              CarouselShop(imageLists: imageList)
+            ],
+          ),
         ));
   }
 }

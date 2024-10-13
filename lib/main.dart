@@ -1,8 +1,6 @@
-// import 'package:desi_mart/Login_Screen/login.dart';
-import 'package:desi_mart/Signup_Screen/signup.dart';
 import 'package:desi_mart/firebase_options.dart';
 import 'package:desi_mart/shop_screen/shop.dart';
-import 'package:desi_mart/splash%20Screen/splashScreen.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +18,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: Shop(),
     );
   }
 }

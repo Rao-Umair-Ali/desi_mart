@@ -2,8 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class CarouselShop extends StatelessWidget {
-  List imageLists;
-  CarouselShop({super.key, required this.imageLists});
+  final List imageLists;
+  const CarouselShop({super.key, required this.imageLists});
   @override
   Widget build(BuildContext context) {
     return Container(
