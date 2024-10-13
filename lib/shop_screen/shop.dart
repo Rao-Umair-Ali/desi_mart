@@ -15,24 +15,6 @@ class Shop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: Container(
-          width: MediaQuery.of(context).size.width * 2.2,
-          child: CarouselSlider(
-            items: imageList.map((imageUrl) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
-                          fit: BoxFit.cover, image: NetworkImage(imageUrl))),
-                ),
-              );
-            }).toList(),
-            options: CarouselOptions(
-                height: 100, autoPlay: true, enlargeCenterPage: true),
-          ),
-        ));
+        body:)
   }
 }
