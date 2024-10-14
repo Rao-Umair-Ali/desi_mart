@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 
 class CarouselShop extends StatelessWidget {
   final List imageLists;
-  const CarouselShop({super.key, required this.imageLists});
+  final bool enableInfiniteScroll;
+  const CarouselShop(
+      {super.key,
+      required this.imageLists,
+      required this.enableInfiniteScroll});
 
   @override
   Widget build(BuildContext context) {
@@ -18,22 +22,23 @@ class CarouselShop extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.amber,
+                border: Border.all(color: Colors.black, width: 1),
                 borderRadius: BorderRadius.circular(05),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(imageUrl),
+                  image: AssetImage(imageUrl),
                 ),
               ),
             ),
           );
         }).toList(),
         options: CarouselOptions(
-          height: 100, // Increase height for better display
-          viewportFraction:
-              1.0, // Controls the width of each item (90% of screen width)
-          autoPlay: true, // Enable auto-scrolling
-        ),
+            height: 125, // Increase height for better display
+            viewportFraction:
+                1.0, // Controls the width of each item (90% of screen width)
+            autoPlay: true,
+            enableInfiniteScroll: enableInfiniteScroll // Enable auto-scrolling
+            ),
       ),
     );
   }
