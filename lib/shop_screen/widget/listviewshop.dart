@@ -12,7 +12,7 @@ class ListViewShop extends StatelessWidget {
       "itemName": "Bell pepper",
       "items": "3 pcs",
       "itemValue": "7 dollars",
-      "itemPicture": "assets/images/bellpeper.png"
+      "itemPicture": "assets/images/bellPeper.png"
     },
     {
       "itemName": "ginger",
@@ -30,7 +30,7 @@ class ListViewShop extends StatelessWidget {
       "itemName": "Bell pepper",
       "items": "3 pcs",
       "itemValue": "7 dollars",
-      "itemPicture": "assets/images/bellpeper.png"
+      "itemPicture": "assets/images/bellPeper.png"
     },
     {
       "itemName": "ginger",

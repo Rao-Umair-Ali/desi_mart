@@ -1,4 +1,5 @@
 import 'package:desi_mart/shop_screen/widget/carouselShop.dart';
+import 'package:desi_mart/shop_screen/widget/groceriesSlider.dart';
 import 'package:desi_mart/shop_screen/widget/listviewshop.dart';
 import 'package:desi_mart/shop_screen/widget/searchfieldShop.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class Shop extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -115,8 +117,31 @@ class Shop extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                CarouselShop(
-                    imageLists: groceriesList, enableInfiniteScroll: false),
+                const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      GroceriesSlider(
+                          groceryName: "Pulses",
+                          imageLink: "assets/images/pulses.png",
+                          colorName: Color(0xffF8A44C)),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GroceriesSlider(
+                          groceryName: "Rice",
+                          imageLink: "assets/images/rice.png",
+                          colorName: Color(0xff53B175)),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GroceriesSlider(
+                          groceryName: "Pulses",
+                          imageLink: "assets/images/pulses.png",
+                          colorName: Color.fromARGB(255, 47, 172, 172)),
+                    ],
+                  ),
+                ),
                 const SizedBox(
                   height: 15,
                 ),
