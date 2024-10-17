@@ -6,16 +6,58 @@ import 'package:flutter/material.dart';
 
 class Shop extends StatelessWidget {
   Shop({super.key});
+  final List<Map<dynamic, dynamic>> itemList = [
+    {
+      "itemName": "Apple",
+      "items": "7 pcs",
+      "itemValue": "7 dollars",
+      "itemPicture": "assets/images/apple.png",
+      "itemdetail":
+          "i am bell pepper in a Container with Alignment. The default alignment for Text inside a Column is centered, so you need to override that.Heres how you can align them to the left side of the page"
+    },
+    {
+      "itemName": "Bell pepper",
+      "items": "3 pcs",
+      "itemValue": "7 dollars",
+      "itemPicture": "assets/images/bellPeper.png",
+      "itemdetail": "i am bell pepper"
+    },
+    {
+      "itemName": "ginger",
+      "items": "3 pcs",
+      "itemValue": "7 dollars",
+      "itemPicture": "assets/images/ginger.png",
+      "itemdetail": "i am ginger"
+    },
+    {
+      "itemName": "Apple",
+      "items": "7 pcs",
+      "itemValue": "7 dollars",
+      "itemPicture": "assets/images/apple.png",
+      "itemdetail": "i am apple"
+    },
+    {
+      "itemName": "Bell pepper",
+      "items": "3 pcs",
+      "itemValue": "7 dollars",
+      "itemPicture": "assets/images/bellPeper.png",
+      "itemdetail": "i am bell pepper"
+    },
+    {
+      "itemName": "ginger",
+      "items": "3 pcs",
+      "itemValue": "7 dollars",
+      "itemPicture": "assets/images/ginger.png",
+      "itemdetail": "i am ginger"
+    },
+  ];
+  void ontap() {}
   final List<String> imageList = [
     'assets/images/banner.png',
     'assets/images/banner.png',
     'assets/images/banner.png',
   ];
-  final List<String> groceriesList = [
-    'assets/images/banner.png',
-    'assets/images/banner.png',
-    'assets/images/banner.png',
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +115,9 @@ class Shop extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                ListViewShop(),
+                ListViewShop(
+                  list: itemList,
+                ),
                 const SizedBox(
                   height: 15,
                 ),
@@ -95,7 +139,9 @@ class Shop extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                ListViewShop(),
+                ListViewShop(
+                  list: itemList,
+                ),
                 const SizedBox(
                   height: 15,
                 ),
@@ -145,7 +191,9 @@ class Shop extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                ListViewShop(),
+                ListViewShop(
+                  list: itemList,
+                ),
               ],
             ),
           ),

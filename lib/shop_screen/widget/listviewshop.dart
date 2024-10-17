@@ -1,44 +1,9 @@
+import 'package:desi_mart/shop_screen/widget/addBasket.dart';
 import 'package:flutter/material.dart';
 
 class ListViewShop extends StatelessWidget {
-  List<Map<dynamic, dynamic>> itemList = [
-    {
-      "itemName": "Apple",
-      "items": "7 pcs",
-      "itemValue": "7 dollars",
-      "itemPicture": "assets/images/apple.png"
-    },
-    {
-      "itemName": "Bell pepper",
-      "items": "3 pcs",
-      "itemValue": "7 dollars",
-      "itemPicture": "assets/images/bellPeper.png"
-    },
-    {
-      "itemName": "ginger",
-      "items": "3 pcs",
-      "itemValue": "7 dollars",
-      "itemPicture": "assets/images/ginger.png"
-    },
-    {
-      "itemName": "Apple",
-      "items": "7 pcs",
-      "itemValue": "7 dollars",
-      "itemPicture": "assets/images/apple.png"
-    },
-    {
-      "itemName": "Bell pepper",
-      "items": "3 pcs",
-      "itemValue": "7 dollars",
-      "itemPicture": "assets/images/bellPeper.png"
-    },
-    {
-      "itemName": "ginger",
-      "items": "3 pcs",
-      "itemValue": "7 dollars",
-      "itemPicture": "assets/images/ginger.png"
-    },
-  ];
+  final List list;
+  ListViewShop({super.key, required this.list});
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +11,16 @@ class ListViewShop extends StatelessWidget {
       height: 248,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: itemList.length,
+        itemCount: list.length,
         itemBuilder: (context, index) {
+          String itemPicture =
+              list[index]["itemPicture"] ?? "assets/images/placeholder.png";
+          String itemName = list[index]["itemName"] ?? "Unknown Item";
+          String itemValue = list[index]["itemValue"] ?? "Unknown Value";
+          String items = list[index]["items"] ?? "Unknown";
+          String itemDetails =
+              list[index]["itemdetail"] ?? "No details available";
+
           return Container(
             decoration: BoxDecoration(
                 border: Border.all(color: Color(0xffE2E2E2)),
@@ -65,7 +38,7 @@ class ListViewShop extends StatelessWidget {
                   child: Container(
                     height: 62.5,
                     width: 103.43,
-                    child: Image.asset(itemList[index]["itemPicture"]),
+                    child: Image.asset(list[index]["itemPicture"]),
                   ),
                 ),
                 SizedBox(height: 8),
@@ -74,13 +47,13 @@ class ListViewShop extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      itemList[index]["itemName"],
+                      list[index]["itemName"],
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      itemList[index]["items"],
-                      style: TextStyle(
+                      list[index]["items"],
+                      style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                           color: Color(0xff7C7C7C)),
@@ -91,7 +64,7 @@ class ListViewShop extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      itemList[index]["itemValue"],
+                      list[index]["itemValue"],
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     ),
@@ -101,13 +74,24 @@ class ListViewShop extends StatelessWidget {
                           border: Border.all(color: Color(0xff53B175)),
                           borderRadius: BorderRadius.circular(17)),
                       child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddBasket(
+                                    image: itemPicture,
+                                    itemName: itemName,
+                                    itemValue: itemValue,
+                                    items: items,
+                                    itemDetails: itemDetails)),
+                          );
+                        },
+                        icon: const Icon(
                           Icons.add,
                         ),
                         color: Colors.white,
                         iconSize: 24,
-                        padding: EdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                       ),
                     ),
                   ],
